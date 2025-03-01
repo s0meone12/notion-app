@@ -50,6 +50,7 @@ export const Navigation = () => {
         if(!isResizingRef.current) return;
         let newWidth = e.clientX;
 
+        console.log(newWidth);
         if(newWidth < 240 ) newWidth = 240;
         if(newWidth > 480 ) newWidth = 480;
 
