@@ -11,8 +11,6 @@ import { Item } from "./item"
 import { FileIcon } from "lucide-react"
 
 
-	
-
 interface DocumentListProps {
   parentDocumentId?:Id<"documents">
   level?:number
