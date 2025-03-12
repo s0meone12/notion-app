@@ -1,43 +1,53 @@
-'use client'	
+'use client'
 
-import { BlockNoteEditor, PartialBlock } from '@blocknote/core'
-import { BlockNoteView, useBlockNote } from '@blocknote/react'
-import '@blocknote/core/style.css'
-import { useTheme } from "next-themes"
+import "@blocknote/core/fonts/inter.css";
+import { BlockNoteView } from "@blocknote/mantine";
+import { useCreateBlockNote } from "@blocknote/react";
+import "@blocknote/mantine/style.css";
 
-import { useEdgeStore } from "@/lib/edgestore"
+import { BlockNoteEditor, PartialBlock } from "@blocknote/core";
+import "@blocknote/core/style.css";
+import { useTheme } from "next-themes";
+import { useEdgeStore } from "@/lib/edgestore";
+import { useEffect } from "react";
 
-interface EditorProps{
-  onChange:(value:string) => void
-  initialContent?:string
-  editable?:boolean
+interface EditorProps {
+  onChange: (value: string) => void;
+  initialContent?: string;
+  editable?: boolean;
 }
 
-function Editor ({onChange,initialContent,editable}:EditorProps) {
+function Editor({ onChange, initialContent, editable = true }: EditorProps) {
+  const { resolvedTheme } = useTheme();
+  const { edgestore } = useEdgeStore();
 
-  const {resolvedTheme} = useTheme()
-  const {edgestore} = useEdgeStore()
+  const handleUpload = async (file: File) => {
+    const response = await edgestore.publicFiles.upload({ file });
+    return response.url;
+  };
 
-  const handleUpload = async (file:File) => {
-    const response = await edgestore.publicFiles.upload({file})
+  const editor: BlockNoteEditor = useCreateBlockNote({
+    initialContent: initialContent ? (JSON.parse(initialContent) as PartialBlock[]) : undefined,
+    uploadFile: handleUpload,
+  });
 
-    return response.url
-  }
+  useEffect(() => {
+    const handleContentChange = () => {
+      onChange(JSON.stringify(editor.topLevelBlocks, null, 2));
+    };
 
-  const editor:BlockNoteEditor = useBlockNote({
-    editable,
-    initialContent:initialContent ? JSON.parse(initialContent) as PartialBlock[] : undefined,
-    onEditorContentChange:(editor) => {
-      onChange(JSON.stringify(editor.topLevelBlocks,null,2))
-    },
-    uploadFile:handleUpload
-  })
+   return handleContentChange;
+  }, [editor, onChange]);
 
-return (
+  return (
     <div>
-      <BlockNoteView editor={editor} theme={resolvedTheme === 'dark' ? 'dark' : 'light'}/>
+      <BlockNoteView
+        editor={editor}
+        theme={resolvedTheme === "dark" ? "dark" : "light"}
+        className={!editable ? "pointer-events-none opacity-60" : ""}
+      />
     </div>
-  )
+  );
 }
 
-export default Editor
+export default Editor;
