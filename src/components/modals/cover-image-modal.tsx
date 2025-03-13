@@ -1,17 +1,22 @@
 'use client'	
 
-import { useState } from "react"
-import { useMutation } from "convex/react"
-import { useParams } from "next/navigation"
+import { useState } from "react";
+import { useMutation } from "convex/react";
+import { useParams } from "next/navigation";
 
-import {Dialog,DialogContent,DialogHeader} from '@/components/ui/dialog'
-import { useCoverImage } from "@/hooks/use-cover-image"
-import { SingleImageDropzone } from "../single-image-dropzone"
-import { useEdgeStore } from "@/lib/edgestore"
-import { api } from "../../../convex/_generated/api"
-import { Id } from "../../../convex/_generated/dataModel"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle
+} from '@/components/ui/dialog';
+import { useCoverImage } from "@/hooks/use-cover-image";
+import { SingleImageDropzone } from "../single-image-dropzone";
+import { useEdgeStore } from "@/lib/edgestore";
+import { api } from "../../../convex/_generated/api";
+import { Id } from "../../../convex/_generated/dataModel";
 
-export function CoverImageModal () {
+export function CoverImageModal() {
 
   const params = useParams();
   const update = useMutation(api.documents.update);
@@ -52,9 +57,11 @@ return (
     <Dialog open={coverImage.isOpen} onOpenChange={coverImage.onClose}>
       <DialogContent>
         <DialogHeader>
+          <DialogTitle>
           <h2 className="text-center text-lg font-semibold">
             Cover Image
           </h2>
+          </DialogTitle>
         </DialogHeader>
         <SingleImageDropzone 
         className="w-full outline-none"

@@ -48,7 +48,7 @@ export function Navigation () {
     if (isMobile) {
       collapse()
     }
-  },[pathname,isMobile])
+  },[ pathname, isMobile])
 
   const handleMouseDown = (event:React.MouseEvent<HTMLDivElement,MouseEvent>) => {
     event.preventDefault()

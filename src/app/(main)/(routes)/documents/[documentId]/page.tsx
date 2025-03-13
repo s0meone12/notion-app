@@ -2,7 +2,7 @@
 
 import { useMutation, useQuery } from "convex/react"
 import dynamic from "next/dynamic"
-import { use } from "react"
+import { use, useMemo } from "react"
 
 import { api } from "../../../../../../convex/_generated/api"
 import { Id } from "../../../../../../convex/_generated/dataModel"
@@ -20,7 +20,8 @@ export default function DocumentIdPage ({ params }: DocumentIdPageProps) {
   // Use React.use() to unwrap the promise
   const unwrappedParams = use(params)
 
-  const Editor = dynamic(() => import("@/components/editor"), { ssr: false })
+  const Editor = useMemo(()=> dynamic(()=> import("@/components/editor") , {ssr: false}), [])
+  // const Editor = dynamic(() => import("@/components/editor"), { ssr: false })
 
   const document = useQuery(api.documents.getById, {
     documentId: unwrappedParams.documentId

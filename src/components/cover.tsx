@@ -18,7 +18,7 @@ interface CoverProps {
   preview?:boolean
 }
 
-export function Cover ({url,preview}:CoverProps) {
+export function Cover({url,preview}:CoverProps) {
 
   const { edgestore } = useEdgeStore();
   const params = useParams();
@@ -45,11 +45,17 @@ return (
       )}
       {url && !preview && (
         <div className="opacity-0 group-hover:opacity-100 absolute bottom-5 right-5 flex gap-x-2 items-center">
-          <Button className="text-muted-foreground text-xs" variant='outline' size='sm' onClick={() => coverIamge.onReplace(url)}>
+          <Button 
+            className="text-muted-foreground text-xs" 
+            variant='outline' size='sm' 
+            onClick={() => coverIamge.onReplace(url)}>
             <ImageIcon className="w-4 h-4 mr-2"/>
             Change Cover
           </Button>
-            <Button className="text-muted-foreground text-xs" variant='outline' size='sm' onClick={onRemove}>
+          <Button 
+            className="text-muted-foreground text-xs" 
+            variant='outline' size='sm' 
+            onClick={onRemove}>
             <X className="w-4 h-4 mr-2"/>
             Remove
           </Button>
