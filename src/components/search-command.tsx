@@ -54,10 +54,10 @@ export const SearchCommand = () => {
     return ( 
         <CommandDialog open={isOpen} onOpenChange={onClose}>
             <CommandInput
-                {...{ placeholder: `Search ${user?.fullName}'s Jotion...` }}
+                placeholder={`Search ${user?.fullName}'s Jotion...`}
             />
             <CommandList>
-                <CommandEmpty>No results found.</CommandEmpty>
+                <CommandEmpty>N results found.</CommandEmpty>
                 <CommandGroup heading='Documents'>
                     {documents?.map((document)=>(
                         <CommandItem
