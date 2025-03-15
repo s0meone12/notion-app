@@ -1,15 +1,15 @@
 'use client'
 
-import { useState } from "react"
-import { useMutation } from "convex/react"
-import { Check, Copy, Globe } from "lucide-react"
-import { toast } from "sonner"
+import { useState } from "react";
+import { useMutation } from "convex/react";
+import { Check, Copy, Globe } from "lucide-react";
+import { toast } from "sonner";
 
-import { Doc } from "../../../../convex/_generated/dataModel"
-import {Popover,PopoverTrigger,PopoverContent} from '@/components/ui/popover'
-import { useOrigin } from "@/hooks/use-origin"
-import { api } from "../../../../convex/_generated/api"
-import { Button } from "@/components/ui/button"
+import { Doc } from "../../../../convex/_generated/dataModel";
+import {Popover,PopoverTrigger,PopoverContent} from "@/components/ui/popover";
+import { useOrigin } from "@/hooks/use-origin";
+import { api } from "../../../../convex/_generated/api";
+import { Button } from "@/components/ui/button";
 
 interface PublishProps {
   initialData:Doc<'documents'>
@@ -75,7 +75,12 @@ return (
           {initialData.isPublished && <Globe className="text-sky-500 w-4 h-4 ml-2"/>}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-72" align="end" alignOffset={8} forceMount>
+      <PopoverContent 
+        className="w-72" 
+        align="end" 
+        alignOffset={8} 
+        forceMount
+      >
         {initialData.isPublished ? (
           <div className="space-y-4">
             <div className="flex gap-x-2 items-center">
@@ -85,9 +90,15 @@ return (
               </p>
             </div>
             <div className="flex items-center">
-              <input className="flex-1 px-2 text-xs border rounded-l-md h-8 bg-muted truncate"
-               value={url} disabled/>
-               <Button className="h-8 rounded-l-none" onClick={onCopy} disabled={copied}>
+              <input 
+               className="flex-1 px-2 text-xs border rounded-l-md h-8 bg-muted truncate"
+               value={url} 
+               disabled
+               />
+               <Button 
+                className="h-8 rounded-l-none" 
+                onClick={onCopy} 
+                disabled={copied}>
                 {copied ? (
                   <Check className="w-4 h-4"/>
                 ) : (
@@ -95,7 +106,12 @@ return (
                 )}
                </Button>
             </div>
-            <Button className="w-full text-xs" size='sm' disabled={isSubmitting} onClick={onUnPublish}>
+            <Button 
+              className="w-full text-xs" 
+              size='sm' 
+              disabled={isSubmitting} 
+              onClick={onUnPublish}
+            >
               Unpublish
             </Button>
           </div>
@@ -108,7 +124,12 @@ return (
             <span className="text-xs text-muted-foreground mb-4">
               Share your work with others.
             </span>
-            <Button className="w-full text-xs" size='sm' disabled={isSubmitting} onClick={onPublish}>
+            <Button 
+              className="w-full text-xs" 
+              size='sm' 
+              disabled={isSubmitting} 
+              onClick={onPublish}
+            >
               Publish
             </Button>
           </div>

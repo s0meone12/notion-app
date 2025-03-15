@@ -18,10 +18,8 @@ import {
         <Dialog open={settings.isOpen} onOpenChange={settings.onClose}>
             <DialogContent>
                 <DialogHeader className="border-b pb-3">
-                    <DialogTitle>
-                        <h2 className="text-lg font-medium">
-                            My settings
-                        </h2>
+                    <DialogTitle className="text-lg font-medium">
+                        My settings
                     </DialogTitle>
                 </DialogHeader>
                 <div className="flex items-center justify-between">
