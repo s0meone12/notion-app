@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Notion app
 
-## Getting Started
+Notion is an all-in-one productivity and note-taking app that combines note-taking, task management, databases, and collaboration tools. It allows users to create and organize content in a highly flexible way, making it popular for personal use, team collaboration, and project management.
 
-First, run the development server:
+# Image
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![Image](https://github.com/user-attachments/assets/0d124af9-d1e7-4030-b6ae-0dfb713a2d2b)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Image](https://github.com/user-attachments/assets/2175e170-9d72-4021-8a6c-9fcae81b6c6d)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Rich Text Editor – Built with BlockNote Editor for seamless content creation and formatting.
+- File Storage – EdgeStore integration for handling media and file uploads.
+- Convex Database – Stores all documents and handles real-time data synchronization.
+- Authentication – Clerk authentication for secure user login and access control.
+- Tree-Like Structure – Recursion-based system for creating child documents and nested structures.
+- Dark Mode – Implemented using Next Themes for a customizable light/dark UI.
+- Modern UI Components – Utilizes ShadCN UI for a clean and elegant design.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Client:** React.js, Next.js, TypeScript, TailwindCSS, BlockNote Editor, Shadcn UI, Next Themes.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Server:** Next.js (API Routes), Clerk, Convex Database, EdgeStore, Recursion.
 
-## Deploy on Vercel
+## Platforms
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Vercel](https://vercel.com/)
+- [Blocknote](https://www.blocknotejs.org/)
+- [Convex](https://www.convex.dev/)
+- [Clerk](https://clerk.com/)
